@@ -4,6 +4,17 @@ A desktop application for managing clients, products and orders, built with **Ja
 
 Developed as Assignment 3 for the *Programming Techniques* course.
 
+
+## Screenshots
+
+| Clients                                      | Products                                       |
+|----------------------------------------------|------------------------------------------------|
+| ![Clients tab](docs/screenshots/clients.png) | ![Products tab](docs/screenshots/products.png) |
+
+| Orders                                     | Bills                                    |
+|--------------------------------------------|------------------------------------------|
+| ![Orders tab](docs/screenshots/orders.png) | ![Bills tab](docs/screenshots/bills.png) |
+
 ## Features
 
 * **Clients**: add, view, edit and delete clients (with email validation).
@@ -28,30 +39,30 @@ Developed as Assignment 3 for the *Programming Techniques* course.
 ### Prerequisites
 
 * JDK 25
-* PostgreSQL 18 (with `pg\_restore` available)
+* PostgreSQL 18 (with `pg\\\_restore` available)
 * IntelliJ IDEA. The GUI is built with the IntelliJ GUI Designer, so the project must be built and run from IntelliJ. Running it with plain `mvn` or `javac` leaves the form components uninitialized.
 
 ### 1\. Set up the database
 
-The dump in `src/main/resources` is a PostgreSQL custom-format archive. Restore it with `pg\_restore`, not `psql`:
+The dump in `src/main/resources` is a PostgreSQL custom-format archive. Restore it with `pg\\\_restore`, not `psql`:
 
 ```bash
-pg\_restore -U postgres -d postgres --clean --if-exists src/main/resources/sql\_dump\_assignment3.sql
+pg\\\_restore -U postgres -d postgres --clean --if-exists src/main/resources/sql\\\_dump\\\_assignment3.sql
 ```
 
-This creates the `schema\_ass3` schema with the tables `client`, `product`, `orders`, `orderitems` and `log`.
+This creates the `schema\\\_ass3` schema with the tables `client`, `product`, `orders`, `orderitems` and `log`.
 
 ### 2\. Configure the connection
 
-By default the app connects to `jdbc:postgresql://localhost:5432/postgres?currentSchema=schema\_ass3` as user `postgres` with password `postgres`. Override these with environment variables:
+By default the app connects to `jdbc:postgresql://localhost:5432/postgres?currentSchema=schema\\\_ass3` as user `postgres` with password `postgres`. Override these with environment variables:
 
 |Variable|Default|
 |-|-|
-|`DB\_URL`|`jdbc:postgresql://localhost:5432/postgres?currentSchema=schema\_ass3`|
-|`DB\_USER`|`postgres`|
-|`DB\_PASSWORD`|`postgres`|
+|`DB\\\_URL`|`jdbc:postgresql://localhost:5432/postgres?currentSchema=schema\\\_ass3`|
+|`DB\\\_USER`|`postgres`|
+|`DB\\\_PASSWORD`|`postgres`|
 
-In IntelliJ, set them under **Run → Edit Configurations → Environment variables**, for example `DB\_PASSWORD=your\_password`.
+In IntelliJ, set them under **Run → Edit Configurations → Environment variables**, for example `DB\\\_PASSWORD=your\\\_password`.
 
 ### 3\. Run
 
@@ -85,7 +96,7 @@ The window has four tabs:
     │   ├── businessLogic/         # ClientBLL, ProductBLL, OrdresBLL, UnderStockException
     │   └── presentation/          # StoreGUI (Swing), TableGenerator (reflection-based tables)
     └── resources/
-        └── sql\_dump\_assignment3.sql
+        └── sql\\\_dump\\\_assignment3.sql
 ```
 
 ## How it works
@@ -100,9 +111,9 @@ The window has four tabs:
 |-|-|
 |`client`|`id`, `name`, `email`, `phone`|
 |`product`|`id`, `name`, `price`, `description`, `stock`|
-|`orders`|`id`, `status`, `client\_id` → `client`, `total\_sum`|
-|`orderitems`|`id`, `order\_id` → `orders`, `product\_id` → `product`, `quantity` (> 0)|
-|`log`|`id`, `order\_id`, `client\_name`, `product\_name`, `quantity`, `price` (the bills)|
+|`orders`|`id`, `status`, `client\\\_id` → `client`, `total\\\_sum`|
+|`orderitems`|`id`, `order\\\_id` → `orders`, `product\\\_id` → `product`, `quantity` (> 0)|
+|`log`|`id`, `order\\\_id`, `client\\\_name`, `product\\\_name`, `quantity`, `price` (the bills)|
 
 ## Documentation
 
