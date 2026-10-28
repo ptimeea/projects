@@ -1,0 +1,6 @@
+unnamed package
+org.example
+org.example.businessLogic
+org.example.dataAccess
+org.example.model
+org.example.presentation
