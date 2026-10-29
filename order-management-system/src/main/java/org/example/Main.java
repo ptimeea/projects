@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public static void main(String[] args) {
     SwingUtilities.invokeLater(() -> {
-        JFrame frame = new JFrame("Sist. Management");
+        JFrame frame = new JFrame("Order Management Sistem");
         StoreGUI page = new StoreGUI();
         frame.setContentPane(page.getPanel1());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

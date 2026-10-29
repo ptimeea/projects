@@ -15,7 +15,7 @@ public class ConnectionFactory {
     private static final String DRIVER = "org.postgresql.Driver";
     private static final String DB_URL = getEnv("DB_URL", "jdbc:postgresql://localhost:5432/postgres?currentSchema=schema_ass3");
     private static final String USER = getEnv("DB_USER", "postgres");
-    private static final String PASS = getEnv("DB_PASSWORD", "timeeaparola");
+    private static final String PASS = getEnv("DB_PASSWORD", "postgres");
 
     private static String getEnv(String key, String fallback) {
         String value = System.getenv(key);
